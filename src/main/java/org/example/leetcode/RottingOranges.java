@@ -38,8 +38,8 @@ public class RottingOranges {
 			time++;
 			int num = rotten.size();
 			for (int indx = 0; indx < num; ++indx) {
-				int tamo = rotten.poll();
-				int i = tamo / c, j = tamo % c;
+				int tomato = rotten.poll();
+				int i = tomato / c, j = tomato % c;
 				if (i > 0 && grid[i - 1][j] == 1) {// UP
 					grid[i - 1][j] = 2;
 					fresh--;

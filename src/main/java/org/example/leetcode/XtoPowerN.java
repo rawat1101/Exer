@@ -3,9 +3,9 @@ package org.example.leetcode;
 public class XtoPowerN {
 
 	public static void main(String[] args) {
-		System.out.println(xPowN(2.00000, -3));
+//		System.out.println(xPowN(2.00000, -3));
 //		System.out.println(myPow(2.00000, -10));
-//		System.out.println(myPow2(2.00000, -5));
+		System.out.println(myPow2(2.00000, 8));
 //		System.out.println(powerUsingIterative(2.00000, -5));
 		int[] ans = new int[] {};
 	}

@@ -22,7 +22,7 @@ public class BalancedParentheses {
 
 	}
 
-	public static boolean isBlanced(String expression) {
+	public static boolean isBalanced(String expression) {
 		Stack<Character> stack = new Stack<>();
 		for (char c : expression.toCharArray()) {
 			if (isOpenTerm(c))
@@ -36,7 +36,7 @@ public class BalancedParentheses {
 
 	public static void main(String[] args) {
 		String exp = "{[()]}}";
-		System.out.println(isBlanced(exp));
+		System.out.println(isBalanced(exp));
 
 	}
 

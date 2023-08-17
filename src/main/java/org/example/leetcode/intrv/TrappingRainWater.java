@@ -13,33 +13,33 @@ public class TrappingRainWater {
 	public static int trap(int[] arr) {
 		int l = 0;
 		int r = arr.length - 1;
-		int lm = 0, rm = 0, ans = 0;
+		int leftMax = 0, rightMax = 0, ans = 0;
 		while (l < r) {
-			lm = Math.max(lm, arr[l]);
-			rm = Math.max(rm, arr[r]);
-			if (lm < rm)
-				ans = ans + lm - arr[l++];
+			leftMax = Math.max(leftMax, arr[l]);
+			rightMax = Math.max(rightMax, arr[r]);
+			if (leftMax < rightMax)
+				ans = ans + leftMax - arr[l++];
 			else
-				ans = ans + rm - arr[r--];
+				ans = ans + rightMax - arr[r--];
 		}
 		return ans;
 	}
 
 	static int trap3(int[] arr) {
 		int n = arr.length;
-		int leftHights[] = new int[n];
-		int rightHights[] = new int[n];
-		leftHights[0] = arr[0];
+		int[] leftHeights = new int[n];
+		int[] rightHeights = new int[n];
+		leftHeights[0] = arr[0];
 		for (int i = 1; i < n; i++) {
-			leftHights[i] = Math.max(leftHights[i - 1], arr[i]);
+			leftHeights[i] = Math.max(leftHeights[i - 1], arr[i]);
 		}
-		rightHights[n - 1] = arr[n - 1];
+		rightHeights[n - 1] = arr[n - 1];
 		for (int i = n - 2; i >= 0; i--) {
-			rightHights[i] = Math.max(rightHights[i + 1], arr[i]);
+			rightHeights[i] = Math.max(rightHeights[i + 1], arr[i]);
 		}
 		int waterTrapped = 0;
 		for (int i = 0; i < n; i++) {
-			waterTrapped += Math.min(leftHights[i], rightHights[i]) - arr[i];
+			waterTrapped += Math.min(leftHeights[i], rightHeights[i]) - arr[i];
 		}
 		return waterTrapped;
 	}

@@ -1,17 +1,14 @@
 package org.example.leetcode.intrv;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class _2_3_4_Sum {
 
     public static void main(String[] args) {
         int target = 0;
-        int[] nums = {12, -8, 5, 1, -7, -6, 2, 3, 6, 4};
-        printAllThreeSum(nums, target);
+        int[] nums = {-1, 0, 1, 2, -1, -4};
+        System.out.println("threeSum(nums,target) = " + threeSum(nums, target));
+        System.out.println("threeSum(nums) = " + threeSum(nums));
 
     }
 
@@ -19,9 +16,9 @@ public class _2_3_4_Sum {
 
         Map<Integer, Integer> numMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            int remaning = target - nums[i];
-            if (numMap.containsKey(remaning))
-                return new int[]{numMap.get(remaning), i};
+            int remaining = target - nums[i];
+            if (numMap.containsKey(remaining))
+                return new int[]{numMap.get(remaining), i};
             else
                 numMap.put(nums[i], i);
         }
@@ -29,24 +26,24 @@ public class _2_3_4_Sum {
 
     }
 
-    //duplicate not handeld
-    public static void printAllThreeSum(int[] array, int target) {
+    //duplicate not handled
+    public static List<List<Integer>> threeSum(int[] array, int target) {
         int length = array.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        List<List<Integer>> list = new ArrayList();
         for (int i = 0; i < length; i++) {
             int first = array[i];
-            Map<Integer, Integer> map = new HashMap<>();
-            int newTarget = target - first;
+            int remaining = target - first;
             for (int j = i + 1; j < length; j++) {
-                int key = newTarget - array[j];
+                int key = remaining - array[j];
                 if (map.containsKey(key))
-                    System.out.println(first + " , " + array[j] + " , " + array[map.get(key)]);
+                    list.add(Arrays.asList(first, array[j], array[map.get(key)]));
                 else
                     map.put(array[j], j);
 
             }
-
         }
-
+        return list;
     }
 
     public static List<List<Integer>> threeSum(int[] num) {

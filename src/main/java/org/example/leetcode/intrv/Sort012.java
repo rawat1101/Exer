@@ -1,11 +1,11 @@
 package org.example.leetcode.intrv;
 // Java program to sort an array of 0, 1 and 2
 
-class countzot { 
+class Sort012 {
 
 	// Sort the input array, the array is assumed to 
 	// have values in {0, 1, 2} 
-	static void sort012(int a[], int arr_size) 
+	static void sort012(int a[], int arr_size)
 	{ 
 		int lo = 0; 
 		int hi = arr_size - 1; 
@@ -57,4 +57,3 @@ class countzot {
 		printArray(arr, arr_size); 
 	} 
 } 
-/*This code is contributed by Devesh Agrawal*/

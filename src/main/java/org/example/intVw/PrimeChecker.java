@@ -16,14 +16,11 @@ public class PrimeChecker {
         // all prime numbers greater than 3 can be expressed in this form(6k ± 1)
         // Check divisibility only for numbers of the form 6k ± 1 up to the square root of 'number'
         int sqrt = (int) Math.sqrt(number);
-//        int c = 0;
         for (int i = 5; i <= sqrt; i += 6) {
-//            c++;
             if (number % i == 0 || number % (i + 2) == 0) {
                 return false;
             }
         }
-//        System.out.println("c = " + c);
         return true;
     }
 

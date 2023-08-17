@@ -25,8 +25,8 @@ public class Permutation {
 			for (int i = 0; i < n; i++) {
 				String beforePreFixPart = str.substring(0, i);
 				String afterPreFixPart = str.substring(i + 1, n);
-				String prefix2 = prefix + str.charAt(i);
-				permutation(prefix2, beforePreFixPart + afterPreFixPart);
+				String newPrefix = prefix + str.charAt(i);
+				permutation(newPrefix, beforePreFixPart + afterPreFixPart);
 			}
 		}
 	}

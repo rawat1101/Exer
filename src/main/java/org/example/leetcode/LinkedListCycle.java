@@ -55,8 +55,8 @@ public class LinkedListCycle {
 		ListNode fast = head;
 
 		while (fast != null && fast.next != null) {
-			fast = fast.next.next;
 			slow = slow.next;
+			fast = fast.next.next;
 
 			if (fast == slow) {
 				fast = head;

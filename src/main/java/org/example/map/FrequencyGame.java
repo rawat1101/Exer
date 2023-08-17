@@ -42,7 +42,7 @@ public class FrequencyGame {
 		return ans;
 	}
 
-	public static int LargButMinFreq3(int a[], int n) {
+	public static int largButMinFreq3(int a[], int n) {
 		HashMap<Integer, Integer> hm = new HashMap<>();
 		for (int i = 0; i < n; i++) {
 			hm.put(a[i], hm.getOrDefault(a[i], 0) + 1);

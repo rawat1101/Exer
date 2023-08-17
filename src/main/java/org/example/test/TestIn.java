@@ -6,11 +6,12 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 class TestIn {
+
+
     public static void main(String[] args) throws InterruptedException {
 
-        /*Stream.of(111, 2222, 3322, 9999, 111, 1).sorted((o1, o2) -> o1 - o2)
-                .forEach(System.out::println);*/
-        System.out.println("addBigNumbers() = " + addBigNumbers("111", "999"));
+
+//
 
     }
 
@@ -32,6 +33,100 @@ class TestIn {
           IntStream stream = IntStream.of(arr);
           stream.filter(TestIn::sameDigit).forEach(System.out::println);
       */
+    public static int ways(int step) {
+        int s1 = 1;
+        int s2 = 2;
+        int s3 = 4;
+        int res = 0;
+        //1, 1, 2, 4, 7, 13 ....
+        for (int i = 4; i <= step; i++) {
+            res = s1 + s2 + s3;
+            s1 = s2;
+            s2 = s3;
+            s3 = res;
+        }
+        return res;
+    }
+
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+
+    }
+
+    static class CusLiList {
+        Node head;
+        Node last;
+
+        public Node getHead() {
+            return head;
+        }
+
+        public void add(int data) {
+            Node newNode = new Node(data);
+            if (head == null)
+                head = newNode;
+            else
+                last.next = newNode;
+            last = newNode;
+        }
+
+        public void display(Node root) {
+            while (root != null) {
+                System.out.println(root.data);
+                root = root.next;
+            }
+        }
+
+        public Node delete(int data) {
+            Node prev = null;
+            Node cur = head;
+            while (cur != null) {
+                if (data == cur.data) {
+                    prev.next = cur.next;
+                    break;
+                }
+                prev = cur;
+                cur = cur.next;
+            }
+            return prev;
+        }
+
+    }
+
+    public static void printFirstAndLastIndex(int[] nums, int target) {
+       /* int[] nums = {1, 3, 3, 3, 3, 3, 3, 3};
+        int[] nums = {5, 7, 7, 8, 8, 10};
+        int target = 6;
+        printFirstAndLastIndex(nums, target);*/
+        int l = 0;
+        int r = nums.length - 1;
+        int index = -1;
+
+        while (l < r) {
+            int mid = (l + r) / 2;
+            if (nums[mid] == target) {
+                index = nums[mid];
+                break;
+            } else if (nums[mid] > target)
+                r = mid - 1;
+            else
+                l = mid + 1;
+        }
+        int i = index, j = index;
+        while (i > 0 && nums[i - 1] == target) {
+            i--;
+        }
+        while (j > 0 && j < nums.length - 1 && nums[j + 1] == target) {
+            j++;
+        }
+        System.out.println("i : " + i + ", j : " + j);
+    }
+
     private static boolean sameDigit(int num) {
 
         int digit = num % 10;
@@ -141,9 +236,7 @@ class TestIn {
     }
 
     public static boolean isVowel(char ch) {
-        if (ch == 'a' || ch == 'i' || ch == 'o' || ch == 'e' || ch == 'u')
-            return true;
-        return false;
+        return (ch == 'a' || ch == 'i' || ch == 'o' || ch == 'e' || ch == 'u');
     }
 
 

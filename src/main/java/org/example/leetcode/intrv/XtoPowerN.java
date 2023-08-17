@@ -1,6 +1,6 @@
 package org.example.leetcode.intrv;
 
-public class PowerOfN {
+public class XtoPowerN {
 
 	public static void main(String[] args) {
 		/*System.out.println(power(2, 3));
@@ -14,12 +14,12 @@ public class PowerOfN {
 //		int n = -2;
 		int n = 20;
 		if (n < 0)
-			System.out.println(1.0 / xpowerN(x, n));
+			System.out.println(1.0 / xToPowerN(x, n));
 		else
-			System.out.println(xpowerN(x, n));
+			System.out.println(xToPowerN(x, n));
 	}
 
-	static double xpowerN(double x, int n) {
+	static double xToPowerN(double x, int n) {
 
 		if (x == 0 || n == 0)
 			return 1;
